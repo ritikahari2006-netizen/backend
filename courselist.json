@@ -1,0 +1,122 @@
+[
+  {
+    "courseid": 1,
+    "coursename": "Java Programming",
+    "trainer": "Rahul Sharma",
+    "duration": "3 Months",
+    "fees": 12000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 2,
+    "coursename": "Python Programming",
+    "trainer": "Neha Gupta",
+    "duration": "3 Months",
+    "fees": 11000,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 3,
+    "coursename": "Web Development",
+    "trainer": "Amit Verma",
+    "duration": "4 Months",
+    "fees": 15000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 4,
+    "coursename": "React JS",
+    "trainer": "Priya Singh",
+    "duration": "2 Months",
+    "fees": 9000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 5,
+    "coursename": "Node.js",
+    "trainer": "Vikas Kumar",
+    "duration": "2 Months",
+    "fees": 9500,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 6,
+    "coursename": "MongoDB",
+    "trainer": "Anjali Mehta",
+    "duration": "2 Months",
+    "fees": 8500,
+    "mode": "Online"
+  },
+  {
+    "courseid": 7,
+    "coursename": "Data Science",
+    "trainer": "Rohit Malhotra",
+    "duration": "6 Months",
+    "fees": 25000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 8,
+    "coursename": "Machine Learning",
+    "trainer": "Sneha Kapoor",
+    "duration": "5 Months",
+    "fees": 22000,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 9,
+    "coursename": "C Programming",
+    "trainer": "Manish Yadav",
+    "duration": "2 Months",
+    "fees": 7000,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 10,
+    "coursename": "C++ Programming",
+    "trainer": "Pooja Sharma",
+    "duration": "2 Months",
+    "fees": 7500,
+    "mode": "Online"
+  },
+  {
+    "courseid": 11,
+    "coursename": "SQL and Database",
+    "trainer": "Karan Arora",
+    "duration": "2 Months",
+    "fees": 8000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 12,
+    "coursename": "Cyber Security",
+    "trainer": "Deepak Joshi",
+    "duration": "4 Months",
+    "fees": 18000,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 13,
+    "coursename": "Artificial Intelligence",
+    "trainer": "Riya Bansal",
+    "duration": "6 Months",
+    "fees": 28000,
+    "mode": "Online"
+  },
+  {
+    "courseid": 14,
+    "coursename": "Full Stack Development",
+    "trainer": "Sahil Kapoor",
+    "duration": "6 Months",
+    "fees": 30000,
+    "mode": "Offline"
+  },
+  {
+    "courseid": 15,
+    "coursename": "Cloud Computing",
+    "trainer": "Nitin Sharma",
+    "duration": "4 Months",
+    "fees": 20000,
+    "mode": "Online"
+  }
+]

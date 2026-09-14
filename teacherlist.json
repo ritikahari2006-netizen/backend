@@ -1,0 +1,152 @@
+[
+  {
+    "teaid": 1,
+    "teaname": "Rahul Sharma",
+    "teaemail": "rahul.sharma@example.com",
+    "teaphone": "9876543210",
+    "teasubject": "Java Programming",
+    "teaqualification": "MCA",
+    "teaexperience": "5 Years",
+    "teacity": "Delhi"
+  },
+  {
+    "teaid": 2,
+    "teaname": "Neha Gupta",
+    "teaemail": "neha.gupta@example.com",
+    "teaphone": "9876543211",
+    "teasubject": "Python Programming",
+    "teaqualification": "M.Tech",
+    "teaexperience": "6 Years",
+    "teacity": "Chandigarh"
+  },
+  {
+    "teaid": 3,
+    "teaname": "Amit Verma",
+    "teaemail": "amit.verma@example.com",
+    "teaphone": "9876543212",
+    "teasubject": "Web Development",
+    "teaqualification": "MCA",
+    "teaexperience": "4 Years",
+    "teacity": "Panipat"
+  },
+  {
+    "teaid": 4,
+    "teaname": "Priya Singh",
+    "teaemail": "priya.singh@example.com",
+    "teaphone": "9876543213",
+    "teasubject": "React JS",
+    "teaqualification": "M.Tech",
+    "teaexperience": "5 Years",
+    "teacity": "Gurugram"
+  },
+  {
+    "teaid": 5,
+    "teaname": "Vikas Kumar",
+    "teaemail": "vikas.kumar@example.com",
+    "teaphone": "9876543214",
+    "teasubject": "Node.js",
+    "teaqualification": "MCA",
+    "teaexperience": "4 Years",
+    "teacity": "Noida"
+  },
+  {
+    "teaid": 6,
+    "teaname": "Anjali Mehta",
+    "teaemail": "anjali.mehta@example.com",
+    "teaphone": "9876543215",
+    "teasubject": "MongoDB",
+    "teaqualification": "M.Tech",
+    "teaexperience": "7 Years",
+    "teacity": "Jaipur"
+  },
+  {
+    "teaid": 7,
+    "teaname": "Rohit Malhotra",
+    "teaemail": "rohit.malhotra@example.com",
+    "teaphone": "9876543216",
+    "teasubject": "Data Science",
+    "teaqualification": "M.Sc Data Science",
+    "teaexperience": "6 Years",
+    "teacity": "Bengaluru"
+  },
+  {
+    "teaid": 8,
+    "teaname": "Sneha Kapoor",
+    "teaemail": "sneha.kapoor@example.com",
+    "teaphone": "9876543217",
+    "teasubject": "Machine Learning",
+    "teaqualification": "M.Tech AI",
+    "teaexperience": "5 Years",
+    "teacity": "Mumbai"
+  },
+  {
+    "teaid": 9,
+    "teaname": "Manish Yadav",
+    "teaemail": "manish.yadav@example.com",
+    "teaphone": "9876543218",
+    "teasubject": "C Programming",
+    "teaqualification": "MCA",
+    "teaeexperience": "3 Years",
+    "teacity": "Rohtak"
+  },
+  {
+    "teaid": 10,
+    "teaname": "Pooja Sharma",
+    "teaemail": "pooja.sharma@example.com",
+    "teaphone": "9876543219",
+    "teasubject": "C++ Programming",
+    "teaqualification": "M.Tech",
+    "teaexperience": "4 Years",
+    "teacity": "Sonipat"
+  },
+  {
+    "teaid": 11,
+    "teaname": "Karan Arora",
+    "teaemail": "karan.arora@example.com",
+    "teaphone": "9876543220",
+    "teasubject": "SQL and Database",
+    "teaqualification": "MCA",
+    "teaexperience": "5 Years",
+    "teacity": "Ambala"
+  },
+  {
+    "teaid": 12,
+    "teaname": "Deepak Joshi",
+    "teaemail": "deepak.joshi@example.com",
+    "teaphone": "9876543221",
+    "teasubject": "Cyber Security",
+    "teaqualification": "M.Tech Cyber Security",
+    "teaexperience": "8 Years",
+    "teacity": "Delhi"
+  },
+  {
+    "teaid": 13,
+    "teaname": "Riya Bansal",
+    "teaemail": "riya.bansal@example.com",
+    "teaphone": "9876543222",
+    "teasubject": "Artificial Intelligence",
+    "teaqualification": "M.Tech AI",
+    "teaexperience": "6 Years",
+    "teacity": "Chandigarh"
+  },
+  {
+    "teaid": 14,
+    "teaname": "Sahil Kapoor",
+    "teaemail": "sahil.kapoor@example.com",
+    "teaphone": "9876543223",
+    "teasubject": "Full Stack Development",
+    "teaqualification": "MCA",
+    "teaexperience": "7 Years",
+    "teacity": "Gurugram"
+  },
+  {
+    "teaid": 15,
+    "teaname": "Nitin Sharma",
+    "teaemail": "nitin.sharma@example.com",
+    "teaphone": "9876543224",
+    "teasubject": "Cloud Computing",
+    "teaqualification": "M.Tech Cloud Computing",
+    "teaexperience": "6 Years",
+    "teacity": "Faridabad"
+  }
+]

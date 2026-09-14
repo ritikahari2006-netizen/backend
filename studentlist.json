@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Riya Sharma",
+    "age": 20,
+    "course": "BCA",
+    "city": "Panipat",
+    "marks": 85
+  },
+  {
+    "id": 2,
+    "name": "Aman Kumar",
+    "age": 21,
+    "course": "BCA",
+    "city": "Karnal",
+    "marks": 78
+  },
+  {
+    "id": 3,
+    "name": "Neha Singh",
+    "age": 20,
+    "course": "BCA",
+    "city": "Rohtak",
+    "marks": 91
+  },
+  {
+    "id": 4,
+    "name": "Rahul Verma",
+    "age": 22,
+    "course": "BCA",
+    "city": "Sonipat",
+    "marks": 74
+  },
+  {
+    "id": 5,
+    "name": "Priya Gupta",
+    "age": 21,
+    "course": "BCA",
+    "city": "Delhi",
+    "marks": 88
+  },
+  {
+    "id": 6,
+    "name": "Arjun Mehta",
+    "age": 20,
+    "course": "BCA",
+    "city": "Hisar",
+    "marks": 82
+  },
+  {
+    "id": 7,
+    "name": "Simran Kaur",
+    "age": 19,
+    "course": "BCA",
+    "city": "Ambala",
+    "marks": 95
+  },
+  {
+    "id": 8,
+    "name": "Vikas Yadav",
+    "age": 22,
+    "course": "BCA",
+    "city": "Gurugram",
+    "marks": 76
+  },
+  {
+    "id": 9,
+    "name": "Anjali Verma",
+    "age": 20,
+    "course": "BCA",
+    "city": "Kurukshetra",
+    "marks": 89
+  },
+  {
+    "id": 10,
+    "name": "Mohit Saini",
+    "age": 21,
+    "course": "BCA",
+    "city": "Yamunanagar",
+    "marks": 80
+  }
+]
