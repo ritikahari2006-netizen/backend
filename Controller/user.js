@@ -31,13 +31,21 @@ catch(error)
 const postuserdata = async (req, res) => {
   try {
 
-    console.log("Received:", req.body);
+    console.log("BODY:", req.body);
+
+    if (!req.body) {
+      return res.status(400).send({
+        status: 400,
+        message: "Request body is missing"
+      });
+    }
+
+    console.log("USERNAME:", req.body.username);
+    console.log("EMAIL:", req.body.email);
+    console.log("PASSWORD:", req.body.password);
 
     const record = {
-      ...req.body,
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email
+      ...req.body
     };
 
     const db = await connectDB();
@@ -51,32 +59,21 @@ const postuserdata = async (req, res) => {
       "User Registered Successfully"
     );
 
-    if (result.acknowledged === true) {
-
-      res.send({
-        status: 200,
-        message: "user data inserted successfully",
-        data: result
-      });
-
-    } else {
-
-      res.send({
-        status: 400,
-        message: "failed to add user data",
-        data: result
-      });
-
-    }
+    res.send({
+      status: 200,
+      message: "user data inserted successfully",
+      data: result
+    });
 
   } catch (error) {
 
-    res.send({
+    console.log("ERROR:", error);
+
+    res.status(500).send({
       status: 500,
       message: "Error inserting user data",
       error: error.message
     });
-
   }
 };
 //PUT- Update user data
