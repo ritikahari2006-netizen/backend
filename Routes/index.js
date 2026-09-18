@@ -12,6 +12,9 @@ const tt=require('../Controller/teacher.js');
 const listtt=require('../courselist.json');
 const ct=require('../Controller/course.js');
 
+const listttt=require('../userlist.json');
+const ctt=require('../Controller/user.js');
+
 //Student Api
 router.get("/home",(req,res)=>{
 
@@ -83,6 +86,11 @@ router.post('/coursepostdata',ct.postcoursedata);
 router.put('/courseputdata/:id', ct.putcoursedata);
 router.delete('/coursedeletedata',ct.deletecoursedata);//?id=1 in postman url
 
+//for users
+router.get('/usergetdata',ctt.getuserdata);
+router.post('/userpostdata',ctt.postuserdata);
+router.put('/userputdata/:id', ctt.putuserdata);
+router.delete('/userdeletedata',ctt.deleteuserdata);//?id=1 in postman url
 
 
 module.exports=router;

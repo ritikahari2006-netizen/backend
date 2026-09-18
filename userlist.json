@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "username": "ritika",
+    "password": "ritika123",
+    "email": "ritika@gmail.com"
+  },
+  {
+    "id": 2,
+    "username": "rahul",
+    "password": "rahul123",
+    "email": "rahul@gmail.com"
+  },
+  {
+    "id": 3,
+    "username": "neha",
+    "password": "neha123",
+    "email": "neha@gmail.com"
+  },
+  {
+    "id": 4,
+    "username": "aman",
+    "password": "aman123",
+    "email": "aman@gmail.com"
+  },
+  {
+    "id": 5,
+    "username": "priya",
+    "password": "priya123",
+    "email": "priya@gmail.com"
+  },
+  {
+    "id": 6,
+    "username": "mohit",
+    "password": "mohit123",
+    "email": "mohit@gmail.com"
+  },
+  {
+    "id": 7,
+    "username": "simran",
+    "password": "simran123",
+    "email": "simran@gmail.com"
+  },
+  {
+    "id": 8,
+    "username": "karan",
+    "password": "karan123",
+    "email": "karan@gmail.com"
+  },
+  {
+    "id": 9,
+    "username": "pooja",
+    "password": "pooja123",
+    "email": "pooja@gmail.com"
+  },
+  {
+    "id": 10,
+    "username": "vikas",
+    "password": "vikas123",
+    "email": "vikas@gmail.com"
+  }
+]

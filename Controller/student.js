@@ -1,6 +1,7 @@
 //api for student data
 //student.js is responsible for getting student data from MongoDB.
 const connectDB = require("../database/db.js")
+const {sendEmail}=require("./email.js");
 
 //GET - Get all student data
 const getstudentdata=async(req,res)=>{
@@ -46,6 +47,13 @@ const poststudentdata = async (req, res) => {
     const result = await student.insertOne(record);
 
     if (result.acknowledged === true) {
+
+      // Send email notification
+      const emailSent = await sendEmail(
+        record.email,
+        "Student Data Added",
+        "Your student data has been added successfully."
+      );
 
       res.send({
         status: 200,
