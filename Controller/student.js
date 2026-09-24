@@ -30,127 +30,191 @@ catch(error)
 };
 //POST - Add Student data
 const poststudentdata = async (req, res) => {
-  try {
 
-    console.log("Received:", req.body);
+    try {
 
-    const record = {
-      ...req.body,
-      id: Number(req.body.id),
-      age: Number(req.body.age),
-      marks: Number(req.body.marks)
-    };
+        console.log(req.body);
+        console.log(req.file);
+          if (!req.body) {
+            return res.send({
+                status: 400,
+                message: "req.body is undefined"
+            });
+        }
 
-    const db = await connectDB();
-    const student = db.collection("student");
+        const db = await connectDB();
+        const student = db.collection("student");
 
-    const result = await student.insertOne(record);
+       const data = {
+    id: Number(req.body.id),
+    name: req.body.name,
+    age: Number(req.body.age),
+    marks: Number(req.body.marks),
+    city: req.body.city,
+    email: req.body.email,
+    image: req.file ? req.file.filename : null
+};
 
-    if (result.acknowledged === true) {
+        const result = await student.insertOne(data);
 
-      // Send email notification
-      const emailSent = await sendEmail(
-        record.email,
-        "Student Data Added",
-        "Your student data has been added successfully."
-      );
+        if (result.acknowledged === true) {
 
-      res.send({
-        status: 200,
-        message: "student data added successfully",
-        data: result
-      });
+            // Send email notification
+            const emailSent = await sendEmail(
+                data.email,
+                "Student Data Added",
+                "Your student data has been added successfully."
+            );
 
-    } else {
+            res.send({
+                status: 200,
+                message: "student data added successfully",
+                data: result
+            });
 
-      res.send({
-        status: 400,
-        message: "failed to add student data",
-        data: result
-      });
+        } else {
+
+            res.send({
+                status: 400,
+                message: "failed to add student data",
+                data: result
+            });
+
+        }
+
+    } catch (error) {
+
+        res.send({
+            status: 500,
+            message: "Error inserting student data",
+            error: error.message
+        });
 
     }
-
-  } catch (error) {
-
-    res.send({
-      status: 500,
-      message: "Error inserting student data",
-      error: error.message
-    });
-
-  }
 };
 //PUT- Update student data
-const putstudentdata = async (req, res) => {
-  try {
-    const studentId = Number(req.params.id);
-
-    const db = await connectDB();
-    const student = db.collection("student");
-
-    // Find student whether id is stored as number or string
-    const existingStudent = await student.findOne({
-      $or: [
-        { id: studentId },
-        { id: String(studentId) }
-      ]
-    });
-
-    console.log("Student ID received:", studentId);
-    console.log("Student found:", existingStudent);
-
-    if (!existingStudent) {
-      return res.send({
-        status: 404,
-        message: "student not found",
-        recordid: studentId
-      });
-    }
-
-    // Update only editable fields
-    const updateData = {
-      name: req.body.name,
-      email: req.body.email,
-      age: Number(req.body.age),
-      city: req.body.city,
-      course: req.body.course,
-      marks: Number(req.body.marks)
-    };
-
-    const result = await student.updateOne(
-      { _id: existingStudent._id },
-      { $set: updateData }
-    );
-
-    console.log("Update result:", result);
-
-    if (result.matchedCount > 0) {
-      res.send({
-        status: 200,
-        message: "student data updated successfully",
-        data: result,
-        recordid: studentId
-      });
-    } else {
-      res.send({
-        status: 400,
-        message: "failed to update student data",
-        data: result,
-        recordid: studentId
-      });
-    }
-
-  } catch (error) {
-    console.error("Update error:", error);
-
-    res.send({
-      status: 500,
-      message: "error updating student data",
-      error: error.message
-    });
-  }
+const putstudentdata = async (req, res) => { 
+  try { 
+    const studentId = Number(req.params.id); 
+ 
+    const db = await connectDB(); 
+    const student = db.collection("student"); 
+ 
+    // Find student whether id is stored as number or string 
+    const existingStudent = await student.findOne({ 
+      $or: [ 
+        { id: studentId }, 
+        { id: String(studentId) } 
+      ] 
+    }); 
+ 
+    console.log("Student ID received:", studentId); 
+    console.log("Student found:", existingStudent); 
+ 
+    if (!existingStudent) { 
+      return res.send({ 
+        status: 404, 
+        message: "student not found", 
+        recordid: studentId 
+      }); 
+    } 
+ 
+    // Update only editable fields 
+    const updateData = { 
+      name: req.body.name, 
+      email: req.body.email, 
+      age: Number(req.body.age), 
+      city: req.body.city, 
+      course: req.body.course, 
+      marks: Number(req.body.marks) 
+    }; 
+ 
+    const result = await student.updateOne( 
+      { _id: existingStudent._id }, 
+      { $set: updateData } 
+    ); 
+ 
+    console.log("Update result:", result); 
+ 
+    if (result.matchedCount > 0) { 
+      res.send({ 
+        status: 200, 
+        message: "student data updated successfully", 
+        data: result, 
+        recordid: studentId 
+      }); 
+    } else { 
+      res.send({ 
+        status: 400, 
+        message: "failed to update student data", 
+        data: result, 
+        recordid: studentId 
+      }); 
+    } 
+ 
+  } catch (error) { 
+    console.error("Update error:", error); 
+ 
+    res.send({ 
+      status: 500, 
+      message: "error updating student data", 
+      error: error.message 
+    }); 
+  } 
 };
+//for updateimage we use multer middleware to upload image and then update the image field in student collection
+
+
+const updateStudentImage = async (req, res) => {
+
+    try {
+
+        const studentId = Number(req.params.id);
+
+        if (!req.file) {
+            return res.send({
+                status: 400,
+                message: "Please select an image"
+            });
+        }
+
+        const db = await connectDB();
+        const student = db.collection("student");
+
+        const result = await student.updateOne(
+            { id: studentId },
+            {
+                $set: {
+                    image: req.file.filename
+                }
+            }
+        );
+
+        if (result.matchedCount === 0) {
+            return res.send({
+                status: 404,
+                message: "Student not found"
+            });
+        }
+
+        res.send({
+            status: 200,
+            message: "Student image updated successfully",
+            data: result
+        });
+
+    } catch (error) {
+
+        res.send({
+            status: 500,
+            message: "Error updating student image",
+            error: error.message
+        });
+
+    }
+};
+
+
 //Delete- Delete student data
 //for query we use (?)
  const deletestudentdata = async (req, res) => {
@@ -213,4 +277,4 @@ const putstudentdata = async (req, res) => {
   }
 };
 
-module.exports={getstudentdata,poststudentdata,putstudentdata,deletestudentdata}
+module.exports={getstudentdata,poststudentdata,putstudentdata,deletestudentdata,updateStudentImage}

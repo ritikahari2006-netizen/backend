@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+const upload = require("../middleware/upload.js");
 
 //for studentlist
 const list=require('../studentlist.json');
@@ -204,8 +205,12 @@ router.get('/studentgetdata', st.getstudentdata);
  *       500:
  *         description: Server error
  */
-router.post('/studentpostdata', st.poststudentdata);
-
+//router.post('/studentpostdata', st.poststudentdata);
+router.post(
+    "/studentpostdata",
+    upload.single("image"),
+    st.poststudentdata
+);
 
 /**
  * @swagger
@@ -234,8 +239,15 @@ router.post('/studentpostdata', st.poststudentdata);
  *       404:
  *         description: Student not found
  */
+// Update student details
 router.put('/studentputdata/:id', st.putstudentdata);
 
+// Update student image only
+router.put(
+    "/studentimageupdate/:id",
+    upload.single("image"),
+    st.updateStudentImage
+);
 
 /**
  * @swagger
