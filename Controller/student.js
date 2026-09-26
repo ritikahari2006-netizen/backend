@@ -33,63 +33,51 @@ const poststudentdata = async (req, res) => {
 
     try {
 
-        console.log(req.body);
-        console.log(req.file);
-          if (!req.body) {
-            return res.send({
-                status: 400,
-                message: "req.body is undefined"
-            });
-        }
+        console.log("BODY:", req.body);
+        console.log("FILE:", req.file);
 
         const db = await connectDB();
         const student = db.collection("student");
 
-       const data = {
-    id: Number(req.body.id),
-    name: req.body.name,
-    age: Number(req.body.age),
-    marks: Number(req.body.marks),
-    city: req.body.city,
-    email: req.body.email,
-    image: req.file ? req.file.filename : null
-};
+        const data = {
+            id: Number(req.body.id),
+            name: req.body.name,
+            age: Number(req.body.age),
+            marks: Number(req.body.marks),
+            city: req.body.city,
+            email: req.body.email,
+            course: req.body.course,
+            image: req.file ? req.file.filename : null
+        };
+
+        console.log("DATA TO INSERT:", data);
 
         const result = await student.insertOne(data);
 
-        if (result.acknowledged === true) {
+        if (result.acknowledged) {
 
-            // Send email notification
-            const emailSent = await sendEmail(
-                data.email,
-                "Student Data Added",
-                "Your student data has been added successfully."
-            );
-
-            res.send({
+            return res.send({
                 status: 200,
-                message: "student data added successfully",
-                data: result
-            });
-
-        } else {
-
-            res.send({
-                status: 400,
-                message: "failed to add student data",
+                message: "Student data added successfully",
                 data: result
             });
 
         }
 
+        return res.send({
+            status: 400,
+            message: "Failed to add student data"
+        });
+
     } catch (error) {
 
-        res.send({
+        console.error("Insert error:", error);
+
+        return res.send({
             status: 500,
             message: "Error inserting student data",
             error: error.message
         });
-
     }
 };
 //PUT- Update student data

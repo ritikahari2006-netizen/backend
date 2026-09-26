@@ -65,7 +65,7 @@ const postteacherdata = async (req, res) => {
     });
   }
 };
-
+//update teacher data
 const putteacherdata = async (req, res) => {
   try {
     const teacherId = parseInt(req.params.id);
@@ -109,7 +109,56 @@ const putteacherdata = async (req, res) => {
     });
   }
 };
+//updateImage api
+const updateTeacherImage = async (req, res) => {
 
+    try {
+
+        const teacherId = Number(req.params.id);
+
+        if (!req.file) {
+            return res.send({
+                status: 400,
+                message: "Please select an image"
+            });
+        }
+
+        const db = await connectDB();
+        const teacher = db.collection("teacher");
+
+        const result = await teacher.updateOne(
+            { id: teacherId },
+            {
+                $set: {
+                    image: req.file.filename
+                }
+            }
+        );
+
+        if (result.matchedCount === 0) {
+            return res.send({
+                status: 404,
+                message: "teacher not found"
+            });
+        }
+
+        res.send({
+            status: 200,
+            message: "Teacher image updated successfully",
+            data: result
+        });
+
+    } catch (error) {
+
+        res.send({
+            status: 500,
+            message: "Error updating teacher image",
+            error: error.message
+        });
+
+    }
+};
+//delete teacher data api
 
 const deleteteacherdata = async (req, res) => {
   try {
