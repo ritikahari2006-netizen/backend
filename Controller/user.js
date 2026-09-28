@@ -1,5 +1,5 @@
 //api for user data
-
+//It is the controller for user data in which the details of the user connected with the register.js in softech where i enter the details of the user and when it matches with the login the dashboard will open.
 const connectDB = require("../database/db.js")
 const em=require("./email.js");
 //GET - Get all student data

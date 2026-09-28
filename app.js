@@ -1,3 +1,4 @@
+
 const express = require('express');
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -16,7 +17,6 @@ app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
-
 app.use('/', indexRouter);
 
 
@@ -34,7 +34,7 @@ const swaggerOptions = {
 
         servers: [
             {
-                url: "http://localhost:3001"
+                url: "https://backend-1-di3j.onrender.com"
             }
         ]
     },
@@ -54,6 +54,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // ================= SERVER =================
 
 app.listen(port, () => {
-    console.log(`server is running on http://localhost:${port}`);
-    console.log(`Swagger is running on http://localhost:${port}/api-docs`);
+    console.log(`Server is running on port ${port}`);
+    console.log(`Swagger is running at /api-docs`);
 });
