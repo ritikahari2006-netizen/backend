@@ -4,8 +4,10 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 
 const cors = require('cors');
-
+const path = require("path");
 const app = express();
+
+
 
 app.set("view engine", "ejs");
 
@@ -15,7 +17,11 @@ const port = 3001;
 
 app.use(cors());
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
+app.use(
+    "/uploads",
+    express.static(path.join(__dirname, "uploads"))
+);
+
 
 app.use('/', indexRouter);
 

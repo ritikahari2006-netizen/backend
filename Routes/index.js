@@ -102,9 +102,11 @@ router.get('/teachergetdata', tt.getteacherdata);
  *       200:
  *         description: Teacher added successfully
  */
-router.post('/teacherpostdata', tt.postteacherdata);
-
-
+router.post(
+    "/teacherpostdata",
+    upload.single("image"),
+    tt.postteacherdata
+);
 /**
  * @swagger
  * /teacherputdata/{id}:
@@ -128,7 +130,20 @@ router.post('/teacherpostdata', tt.postteacherdata);
  *       200:
  *         description: Teacher updated successfully
  */
-router.put('/teacherputdata/:id', tt.putteacherdata);
+// Update teacher data + image
+router.put(
+    "/teacherputdata/:id",
+    upload.single("image"),
+    tt.putteacherdata
+);
+
+
+// Update ONLY teacher image
+router.put(
+    "/teacherimageupdate/:id",
+    upload.single("image"),
+    tt.updateTeacherImage
+);
 
 
 /**
@@ -305,9 +320,12 @@ router.get('/coursegetdata', ct.getcoursedata);
  *       200:
  *         description: Course added successfully
  */
-router.post('/coursepostdata', ct.postcoursedata);
-
-
+// POST + IMAGE
+router.post(
+    "/coursepostdata",
+    upload.single("image"),
+    ct.postcoursedata
+);
 /**
  * @swagger
  * /courseputdata/{id}:
@@ -331,8 +349,15 @@ router.post('/coursepostdata', ct.postcoursedata);
  *       200:
  *         description: Course updated successfully
  */
+//UPDATE COURSE DATA
 router.put('/courseputdata/:id', ct.putcoursedata);
 
+// UPDATE ONLY IMAGE
+router.put(
+    "/courseimageupdate/:id",
+    upload.single("image"),
+    ct.updateCourseImage
+);
 
 /**
  * @swagger
